@@ -1,5 +1,13 @@
 import initPlugin from "./initPlugin";
 
+// https://stackoverflow.com/a/12709880/754377
+declare global {
+  interface Window {
+    jwplayer: jwplayer.JWPlayerStatic;
+    jwplayerPluginJsonp: Function;
+  }
+}
+
 // JW Player custom plugin
 // https://developer.jwplayer.com/jwplayer/docs/jw8-add-a-custom-or-third-party-plugin
 // https://github.com/jwplayer/jwplayer/blob/master/test/files/plugin1.js
