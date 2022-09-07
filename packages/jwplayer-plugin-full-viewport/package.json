@@ -21,5 +21,8 @@
     "lint": "eslint src/**/*.ts",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
