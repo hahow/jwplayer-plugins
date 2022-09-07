@@ -34,3 +34,6 @@ yarn-error.log*
 
 # Storybook
 storybook-static/
+
+# tsup
+dist

@@ -2,6 +2,11 @@
   "name": "@hahow/jwplayer-plugin-full-viewport",
   "version": "0.0.0",
   "description": "",
+  "main": "./dist/iife/fullViewport.js",
+  "types": "./dist/fullViewport.d.ts",
+  "files": [
+    "dist/**"
+  ],
   "devDependencies": {
     "@types/jwplayer": "^8.2.10",
     "eslint": "^7.32.0",
@@ -11,8 +16,10 @@
     "typescript": "^4.5.2"
   },
   "scripts": {
+    "build": "tsup src/fullViewport.ts --format iife --legacy-output --dts",
+    "dev": "tsup src/fullViewport.ts --format iife --legacy-output --watch --dts",
     "lint": "eslint src/**/*.ts",
-    "clean": "rm -rf .turbo && rm -rf node_modules"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "license": "MIT"
 }
