@@ -1,28 +1,28 @@
 {
-  "name": "jwplayer-plugin-full-viewport",
-  "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "Amo Wu <amo260@gmail.com>",
-  "homepage": "https://github.com/hahow/jwplayer-plugins#readme",
-  "license": "ISC",
-  "main": "dist/jwplayer-plugin-full-viewport.js",
-  "module": "dist/jwplayer-plugin-full-viewport.module.js",
-  "directories": {
-    "lib": "dist",
-    "test": "__tests__"
-  },
+  "name": "@hahow/jwplayer-plugin-full-viewport",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/iife/fullViewport.js",
+  "types": "./dist/fullViewport.d.ts",
   "files": [
-    "dist"
+    "dist/**"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hahow/jwplayer-plugins.git"
+  "devDependencies": {
+    "@types/jwplayer": "^8.2.10",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "tsup": "^5.10.1",
+    "typescript": "^4.5.2"
   },
   "scripts": {
-    "test": "node ./__tests__/jwplayer-plugin-full-viewport.test.js"
+    "build": "tsup src/fullViewport.ts --format iife --legacy-output --dts",
+    "dev": "tsup src/fullViewport.ts --format iife --legacy-output --watch --dts",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/hahow/jwplayer-plugins/issues"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
   }
 }
