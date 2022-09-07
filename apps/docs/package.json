@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook --docs",
+    "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
     "react": "18.2.0",
