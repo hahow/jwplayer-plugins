@@ -31,4 +31,3 @@ FullViewport.args = {
   file: "https://cdn.jwplayer.com/manifests/GXbUbwm0.m3u8",
   library: "https://cdn.jwplayer.com/libraries/BdsZ7KBq.js",
 };
-FullViewport.storyName = "劇院模式";
