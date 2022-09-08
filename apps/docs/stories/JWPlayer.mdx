@@ -1,0 +1,49 @@
+import { Story } from "@storybook/addon-docs";
+
+# JW Player Plugins
+
+## jwplayer-plugin-full-viewport
+
+<Story id="jw-player-plugins--full-viewport" />
+
+### Vanilla
+
+```html
+<html>
+  <head>
+    <script src="{your_cloud_hosted_player_library_url}"></script>
+  </head>
+  <body>
+    <div id="myElement"></div>
+
+    <script type="text/JavaScript">
+      jwplayer("myElement").setup({
+        "playlist": "{your_playlist_url}",
+        "plugins": {
+          "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js": {}
+        }
+      });
+    </script>
+  </body>
+</html>
+```
+
+### React
+
+```jsx
+import JWPlayer from '@jwplayer/jwplayer-react';
+
+const App = () => (
+  return (
+    <JWPlayer
+      config={{
+        plugins: {
+          "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js": {},
+        },
+      }}
+      library='{your_cloud_hosted_player_library_url}'
+      playlist='{your_playlist_url}'
+    />
+  );
+);
+```

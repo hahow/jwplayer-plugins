@@ -1,10 +1,17 @@
-import { ComponentStory, ComponentMeta, Meta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 import JWPlayer from "@jwplayer/jwplayer-react";
 import initPlugin from "@hahow/jwplayer-plugin-full-viewport/src/initPlugin";
+
+import Documentation from "./JWPlayer.mdx";
 
 export default {
   title: "JW Player Plugins",
   component: JWPlayer,
+  parameters: {
+    docs: {
+      page: Documentation,
+    },
+  },
 } as ComponentMeta<typeof JWPlayer>;
 
 const Template: ComponentStory<typeof JWPlayer> = (args) => {
@@ -31,4 +38,3 @@ FullViewport.args = {
   file: "https://cdn.jwplayer.com/manifests/GXbUbwm0.m3u8",
   library: "https://cdn.jwplayer.com/libraries/BdsZ7KBq.js",
 };
-FullViewport.storyName = "劇院模式";
