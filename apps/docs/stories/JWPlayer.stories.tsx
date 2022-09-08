@@ -31,7 +31,7 @@ FullViewport.args = {
   config: {
     height: 360,
     plugins: {
-      "/fullViewport.js": {},
+      "./fullViewport.js": {},
     },
     width: 640,
   },
