@@ -1,6 +1,6 @@
 {
   "name": "@hahow/jwplayer-plugin-full-viewport",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "./dist/iife/fullViewport.js",
   "types": "./dist/fullViewport.d.ts",
