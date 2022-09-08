@@ -5,7 +5,13 @@ declare module "@jwplayer/jwplayer-react" {
     config?: any;
     didMountCallback?: (args: {
       id: string;
-      player: jwplayer.JWPlayer;
+      player: {
+        registerPlugin(
+          id: string,
+          target: string,
+          jsPlugin: (playerInstance: jwplayer.JWPlayer) => void
+        ): void;
+      };
     }) => void;
     file: string;
     library: string;
