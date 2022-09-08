@@ -18,6 +18,7 @@ const Template: ComponentStory<typeof JWPlayer> = (args) => {
   return (
     <JWPlayer
       didMountCallback={({ player }) => {
+        // TODO: 這邊需要解釋一下
         player.registerPlugin("fullViewport", "8.0", initPlugin);
       }}
       {...args}
@@ -31,6 +32,10 @@ FullViewport.args = {
   config: {
     height: 360,
     plugins: {
+      // TODO: 這邊需要解釋一下：
+      // 1. 為什麼要放一個空的 fullViewport.js 檔案
+      // 2. 為什麼要用相對路徑
+      // https://storybook.js.org/docs/react/configure/images-and-assets#absolute-versus-relative-paths
       "./fullViewport.js": {},
     },
     width: 640,
