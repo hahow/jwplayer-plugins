@@ -18,7 +18,7 @@
   "scripts": {
     "build": "tsup src/fullViewport.ts --format iife --legacy-output --dts",
     "dev": "tsup src/fullViewport.ts --format iife --legacy-output --watch --dts",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint src/**/*.ts && tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "license": "MIT",
