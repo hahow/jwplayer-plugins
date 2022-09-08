@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta, Meta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 import JWPlayer from "@jwplayer/jwplayer-react";
 import initPlugin from "@hahow/jwplayer-plugin-full-viewport/src/initPlugin";
 
