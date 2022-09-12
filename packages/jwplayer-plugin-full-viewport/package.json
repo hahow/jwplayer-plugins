@@ -1,7 +1,15 @@
 {
   "name": "@hahow/jwplayer-plugin-full-viewport",
   "version": "0.0.3",
-  "description": "",
+  "description": "This is a JW Player plugin that allows users to switch the video player to full-viewport size mode",
+  "keywords": [
+    "jwplayer",
+    "jwplayer plugin"
+  ],
+  "homepage": "https://github.com/hahow/jwplayer-plugins/tree/main/packages/jwplayer-plugin-full-viewport",
+  "bugs": {
+    "url": "https://github.com/hahow/jwplayer-plugins/issues"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -24,6 +32,11 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hahow/jwplayer-plugins.git",
+    "directory": "packages/jwplayer-plugin-full-viewport"
+  },
   "publishConfig": {
     "access": "public"
   }

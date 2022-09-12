@@ -1,6 +1,6 @@
-import { Story } from "@storybook/addon-docs";
-
 # jwplayer-plugin-full-viewport
+
+[![npm version](https://badge.fury.io/js/@hahow%2Fjwplayer-plugin-full-viewport.svg)](https://badge.fury.io/js/@hahow%2Fjwplayer-plugin-full-viewport)
 
 劇院模式，又稱作「視窗全螢幕」。可以將播放器放大至整個瀏覽器（viewport），相較於全螢幕（full-screen）模式，操作上更為方便。
 
@@ -12,7 +12,7 @@ import { Story } from "@storybook/addon-docs";
 
 ## Demo
 
-<Story id="jw-player-plugins--full-viewport" />
+[![demo](https://user-images.githubusercontent.com/559351/189577663-e181630e-c9f8-4095-a833-5b7b6f57d198.png)](https://hahow.github.io/jwplayer-plugins/?path=/docs/jw-player-plugins--full-viewport)
 
 ## External Plugin
 
