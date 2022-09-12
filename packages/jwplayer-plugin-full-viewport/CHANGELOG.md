@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.7
+
+### Patch Changes
+
+- b0a261f: 修正文件連結
+
 ## 0.0.6
 
 ### Patch Changes

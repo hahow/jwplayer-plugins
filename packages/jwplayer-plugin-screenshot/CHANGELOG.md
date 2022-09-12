@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.3
+
+### Patch Changes
+
+- b0a261f: 修正文件連結
+
 ## 0.0.2
 
 ### Patch Changes
