@@ -6,7 +6,7 @@
     "jwplayer",
     "jwplayer plugin"
   ],
-  "homepage": "https://github.com/hahow/jwplayer-plugins/tree/main/packages/jwplayer-plugin-full-viewport",
+  "homepage": "https://hahow.github.io/jwplayer-plugins/?path=/docs/jw-player-plugins--full-viewport",
   "bugs": {
     "url": "https://github.com/hahow/jwplayer-plugins/issues"
   },
