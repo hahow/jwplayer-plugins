@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.3
+
+### Patch Changes
+
+- 9a45a7d: 除了 IIFE，另外也 build CJS & ESM
+
 ## 0.0.2
 
 ### Patch Changes
