@@ -1,6 +1,7 @@
 import { ICON } from "./constants";
 import { addClass, hasClass, removeClass } from "./utils";
 
+// TODO: 解釋為什麼這裡不能使用 arrow function
 export function initPlugin(playerInstance: jwplayer.JWPlayer) {
   // 建立劇院模式 inline style
   const style = document.createElement("style");
