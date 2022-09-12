@@ -6,9 +6,9 @@
 
 ## Table of Contents
 
-- Demo
-- External Plugin
-- Internal Plugin
+- [Demo](#demo)
+- [External Plugin](#external-plugin)
+- [Internal Plugin](#internal-plugin-not-recommended)
 
 ## Demo
 
