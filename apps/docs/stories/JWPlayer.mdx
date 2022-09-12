@@ -66,9 +66,10 @@ const App = () => (
 
 CJS & EMS 格式，非官方使用 plugin 的方式，不建議使用：
 
+1. `npm install @hahow/jwplayer-plugin-full-viewport`
 1. 載入 plugin module `initPlugin`
-2. 建立一份空的 `fullViewport.js`，放在 application 可以讀取的位置（例如 `/`）
-3. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
+1. 建立一份空的 `fullViewport.js`，放在 application 可以讀取的位置（例如 `/`）
+1. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
 
 ```jsx
 import JWPlayer from '@jwplayer/jwplayer-react';
