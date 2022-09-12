@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.6
+
+### Patch Changes
+
+- e1a958c: 修正 Storybook --doc 顯示問題
+
 ## 0.0.5
 
 ### Patch Changes

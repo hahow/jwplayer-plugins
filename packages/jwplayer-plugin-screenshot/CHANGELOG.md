@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.2
+
+### Patch Changes
+
+- e1a958c: 修正 Storybook --doc 顯示問題
+
 ## 0.0.1
 
 ### Patch Changes
