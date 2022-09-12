@@ -1,0 +1,95 @@
+import { Story } from "@storybook/addon-docs";
+
+# jwplayer-plugin-screenshot
+
+這是一個 JW Player 的截圖 plugin，允許使用者擷取當前影格的畫面，並且下載儲存 PNG 圖檔。
+
+## Table of Contents
+
+- Demo
+- External Plugin
+- Internal Plugin
+
+## Demo
+
+<Story id="jw-player-plugins--screenshot" />
+
+## External Plugin
+
+IIFE 格式，JW Player 預設使用 plugin 的方式：
+
+### Vanilla JS
+
+```html
+<html>
+  <head>
+    <script src="{your_cloud_hosted_player_library_url}"></script>
+  </head>
+  <body>
+    <div id="myElement"></div>
+
+    <script type="text/JavaScript">
+      jwplayer("myElement").setup({
+        "playlist": "{your_playlist_url}",
+        "plugins": {
+          "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {}
+        }
+      });
+    </script>
+  </body>
+</html>
+```
+
+### React JS
+
+以 [@jwplayer/jwplayer-react](https://github.com/jwplayer/jwplayer-react) 為例，其它 framework 大同小異：
+
+```jsx
+import JWPlayer from '@jwplayer/jwplayer-react';
+
+const App = () => (
+  return (
+    <JWPlayer
+      library='{your_cloud_hosted_player_library_url}'
+      playlist='{your_playlist_url}'
+      config={{
+        plugins: {
+          "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {},
+        },
+      }}
+    />
+  );
+);
+```
+
+## Internal Plugin (not recommended)
+
+CJS & EMS 格式，非官方使用 plugin 的方式，不建議使用：
+
+1. `npm install @hahow/jwplayer-plugin-screenshot`
+1. 載入 plugin module `initPlugin`
+1. 建立一份空的 `screenshot.js`，放在 application 可以讀取的位置（例如 `/`）
+1. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
+
+```jsx
+import JWPlayer from '@jwplayer/jwplayer-react';
+
+import { initPlugin } from "@hahow/jwplayer-plugin-screenshot";
+
+const App = () => (
+  return (
+    <JWPlayer
+      library='{your_cloud_hosted_player_library_url}'
+      playlist='{your_playlist_url}'
+      config={{
+        plugins: {
+          "/screenshot.js": {},
+        },
+      }}
+      didMountCallback={({ player }) => {
+        player.registerPlugin("screenshot", "8.0", initPlugin);
+      }}
+    />
+  );
+);
+```
