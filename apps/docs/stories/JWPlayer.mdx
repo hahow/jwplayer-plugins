@@ -1,12 +1,24 @@
 import { Story } from "@storybook/addon-docs";
 
-# JW Player Plugins
+# jwplayer-plugin-full-viewport
 
-## jwplayer-plugin-full-viewport
+劇院模式，又稱作「視窗全螢幕」。可以將播放器放大至整個瀏覽器（viewport），相較於全螢幕（full-screen）模式，操作上更為方便。
+
+## Table of Contents
+
+- Demo
+- External Plugin
+- Internal Plugin
+
+## Demo
 
 <Story id="jw-player-plugins--full-viewport" />
 
-### Vanilla
+## External Plugin
+
+IIFE 格式，JW Player 預設使用 plugin 的方式：
+
+### Vanilla JS
 
 ```html
 <html>
@@ -28,7 +40,9 @@ import { Story } from "@storybook/addon-docs";
 </html>
 ```
 
-### React
+### React JS
+
+以 [@jwplayer/jwplayer-react](https://github.com/jwplayer/jwplayer-react) 為例，其它 framework 大同小異：
 
 ```jsx
 import JWPlayer from '@jwplayer/jwplayer-react';
@@ -36,13 +50,44 @@ import JWPlayer from '@jwplayer/jwplayer-react';
 const App = () => (
   return (
     <JWPlayer
+      library='{your_cloud_hosted_player_library_url}'
+      playlist='{your_playlist_url}'
       config={{
         plugins: {
           "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js": {},
         },
       }}
+    />
+  );
+);
+```
+
+## Internal Plugin (not recommended)
+
+CJS & EMS 格式，非官方使用 plugin 的方式，不建議使用：
+
+1. 載入 plugin module `initPlugin`
+2. 建立一份空的 `fullViewport.js`，放在 application 可以讀取的位置（例如 `/`）
+3. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
+
+```jsx
+import JWPlayer from '@jwplayer/jwplayer-react';
+
+import { initPlugin } from "@hahow/jwplayer-plugin-full-viewport";
+
+const App = () => (
+  return (
+    <JWPlayer
       library='{your_cloud_hosted_player_library_url}'
       playlist='{your_playlist_url}'
+      config={{
+        plugins: {
+          "/fullViewport.js": {},
+        },
+      }}
+      didMountCallback={({ player }) => {
+        player.registerPlugin("fullViewport", "8.0", initPlugin);
+      }}
     />
   );
 );
