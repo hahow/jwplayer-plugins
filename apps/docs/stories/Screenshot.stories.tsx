@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import JWPlayer from "@jwplayer/jwplayer-react";
-import { initPlugin } from "@hahow/jwplayer-plugin-full-viewport";
+import { initPlugin } from "@hahow/jwplayer-plugin-screenshot";
 
-import Documentation from "./JWPlayer.mdx";
+import Documentation from "./Screenshot.mdx";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
@@ -21,8 +21,7 @@ const Template: ComponentStory<typeof JWPlayer> = (args) => {
     <JWPlayer
       didMountCallback={({ player }) => {
         if (isDevelopment) {
-          // TODO: 這邊需要解釋一下
-          player.registerPlugin("fullViewport", "8.0", initPlugin);
+          player.registerPlugin("screenshot", "8.0", initPlugin);
         }
       }}
       {...args}
@@ -30,23 +29,19 @@ const Template: ComponentStory<typeof JWPlayer> = (args) => {
   );
 };
 
-export const FullViewport = Template.bind({});
+export const Screenshot = Template.bind({});
 
-FullViewport.args = {
+Screenshot.args = {
   config: {
     height: 360,
     plugins: {
-      // TODO: 這邊需要解釋一下：
-      // 1. 為什麼要放一個空的 fullViewport.js 檔案
-      // 2. 為什麼要用相對路徑
-      // https://storybook.js.org/docs/react/configure/images-and-assets#absolute-versus-relative-paths
       ...(isDevelopment
         ? {
-            "./fullViewport.js": {},
+            "./screenshot.js": { enabled: true },
           }
         : {
-            "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js":
-              {},
+            "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js":
+              { enabled: true },
           }),
     },
     width: 640,
