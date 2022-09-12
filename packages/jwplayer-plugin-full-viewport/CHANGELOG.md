@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.4
+
+### Patch Changes
+
+- 0dc250d: 更新文件
+
 ## 0.0.3
 
 ### Patch Changes
