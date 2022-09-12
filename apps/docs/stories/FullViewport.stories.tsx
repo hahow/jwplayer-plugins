@@ -7,7 +7,7 @@ import Documentation from "./FullViewport.mdx";
 const isDevelopment = process.env.NODE_ENV === "development";
 
 export default {
-  title: "JW Player Plugins",
+  title: "Full Viewport",
   component: JWPlayer,
   parameters: {
     docs: {

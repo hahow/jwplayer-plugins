@@ -7,7 +7,7 @@ import Documentation from "./Screenshot.mdx";
 const isDevelopment = process.env.NODE_ENV === "development";
 
 export default {
-  title: "JW Player Plugins",
+  title: "Screenshot",
   component: JWPlayer,
   parameters: {
     docs: {
