@@ -1,7 +1,15 @@
 import { ICON } from "./constants";
 import { createElement, download, query } from "./utils";
 
-export function initPlugin(playerInstance: jwplayer.JWPlayer, pluginConfig) {
+interface ScreenshotPluginConfig {
+  /** 是否開啟截圖功能，預設 true */
+  enabled?: boolean;
+}
+
+export function initPlugin(
+  playerInstance: jwplayer.JWPlayer,
+  pluginConfig: ScreenshotPluginConfig = { enabled: true }
+) {
   if (pluginConfig.enabled === false) return;
 
   playerInstance.on("ready", () => {
