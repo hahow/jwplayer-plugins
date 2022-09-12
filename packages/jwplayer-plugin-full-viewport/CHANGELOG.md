@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.5
+
+### Patch Changes
+
+- f8363d4: 新增截圖外掛 @hahow/jwplayer-plugin-screenshot
+
 ## 0.0.4
 
 ### Patch Changes
