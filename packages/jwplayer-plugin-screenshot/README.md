@@ -32,7 +32,9 @@ IIFE 格式，JW Player 預設使用 plugin 的方式：
       jwplayer("myElement").setup({
         "playlist": "{your_playlist_url}",
         "plugins": {
-          "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {}
+          "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {
+            enabled: true
+          }
         }
       });
     </script>
@@ -54,7 +56,9 @@ const App = () => (
       playlist='{your_playlist_url}'
       config={{
         plugins: {
-          "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {},
+          "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {
+            enabled: true
+          }
         },
       }}
     />
@@ -83,7 +87,9 @@ const App = () => (
       playlist='{your_playlist_url}'
       config={{
         plugins: {
-          "/screenshot.js": {},
+          "/screenshot.js": {
+            enabled: true
+          }
         },
       }}
       didMountCallback={({ player }) => {
@@ -93,3 +99,9 @@ const App = () => (
   );
 );
 ```
+
+## Configuration
+
+| config    | type      | default | description      |
+| --------- | --------- | ------- | ---------------- |
+| `enabled` | `boolean` | `true`  | 是否開啟截圖功能 |
