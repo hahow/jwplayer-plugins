@@ -1,8 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import JWPlayer from "@jwplayer/jwplayer-react";
-import initPlugin from "@hahow/jwplayer-plugin-full-viewport/src/initPlugin";
+import { initPlugin } from "@hahow/jwplayer-plugin-full-viewport";
 
 import Documentation from "./JWPlayer.mdx";
+
+const isDevelopment = process.env.NODE_ENV === "development";
 
 export default {
   title: "JW Player Plugins",
@@ -18,8 +20,10 @@ const Template: ComponentStory<typeof JWPlayer> = (args) => {
   return (
     <JWPlayer
       didMountCallback={({ player }) => {
-        // TODO: 這邊需要解釋一下
-        player.registerPlugin("fullViewport", "8.0", initPlugin);
+        if (isDevelopment) {
+          // TODO: 這邊需要解釋一下
+          player.registerPlugin("fullViewport", "8.0", initPlugin);
+        }
       }}
       {...args}
     />
@@ -36,7 +40,14 @@ FullViewport.args = {
       // 1. 為什麼要放一個空的 fullViewport.js 檔案
       // 2. 為什麼要用相對路徑
       // https://storybook.js.org/docs/react/configure/images-and-assets#absolute-versus-relative-paths
-      "./fullViewport.js": {},
+      ...(isDevelopment
+        ? {
+            "./fullViewport.js": {},
+          }
+        : {
+            "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js":
+              {},
+          }),
     },
     width: 640,
   },

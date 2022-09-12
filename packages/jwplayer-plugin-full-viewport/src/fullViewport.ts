@@ -1,4 +1,4 @@
-import initPlugin from "./initPlugin";
+import { initPlugin } from ".";
 
 // https://stackoverflow.com/a/12709880/754377
 declare global {
