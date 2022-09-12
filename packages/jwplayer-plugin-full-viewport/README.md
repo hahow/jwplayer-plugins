@@ -12,7 +12,7 @@
 
 ## Demo
 
-[![demo](https://user-images.githubusercontent.com/559351/189577663-e181630e-c9f8-4095-a833-5b7b6f57d198.png)](https://hahow.github.io/jwplayer-plugins/?path=/docs/jw-player-plugins--full-viewport)
+[![demo](https://user-images.githubusercontent.com/559351/189577663-e181630e-c9f8-4095-a833-5b7b6f57d198.png)](https://hahow.github.io/jwplayer-plugins/?path=/docs/full-viewport--full-viewport)
 
 ## External Plugin
 

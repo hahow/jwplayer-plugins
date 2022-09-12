@@ -9,7 +9,11 @@ declare module "@jwplayer/jwplayer-react" {
         registerPlugin(
           id: string,
           target: string,
-          jsPlugin: (playerInstance: jwplayer.JWPlayer) => void
+          jsPlugin: (
+            playerInstance: jwplayer.JWPlayer,
+            pluginConfig: any,
+            pluginDiv: HTMLElement
+          ) => void
         ): void;
       };
     }) => void;
