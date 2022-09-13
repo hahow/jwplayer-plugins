@@ -1,4 +1,4 @@
-import { initPlugin } from ".";
+import { TrackNotesPlugin } from ".";
 
 // https://stackoverflow.com/a/12709880/754377
 declare global {
@@ -21,6 +21,6 @@ declare global {
     (global.jwplayer && global.jwplayer().registerPlugin) ||
     function () {};
 
-  // This line registers above code as a 8.0 compatible plugin called "watermark".
-  registerPlugin("watermark", "8.0", initPlugin);
+  // This line registers above code as a 8.0 compatible plugin called "trackNotes".
+  registerPlugin("trackNotes", "8.14.0", TrackNotesPlugin);
 })(window);

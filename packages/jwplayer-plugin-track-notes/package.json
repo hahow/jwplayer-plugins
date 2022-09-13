@@ -1,12 +1,12 @@
 {
-  "name": "@hahow/jwplayer-plugin-screenshot",
-  "version": "0.0.3",
-  "description": "This is a JW Player plugin that allows users to capture the current frame and download it as a PNG image",
+  "name": "@hahow/jwplayer-plugin-track-notes",
+  "version": "0.0.0",
+  "description": "This is a JW Player plugin that allows users to mark notes on the player's timeline",
   "keywords": [
     "jwplayer",
     "jwplayer plugin"
   ],
-  "homepage": "https://hahow.github.io/jwplayer-plugins/?path=/docs/screenshot",
+  "homepage": "https://hahow.github.io/jwplayer-plugins/?path=/docs/track-notes",
   "bugs": {
     "url": "https://github.com/hahow/jwplayer-plugins/issues"
   },
@@ -26,7 +26,7 @@
     "typescript": "^4.5.2"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts && tsup src/screenshot.ts --format iife --legacy-output",
+    "build": "tsup src/index.ts --format esm,cjs --dts && tsup src/trackNotes.ts --format iife --legacy-output",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "lint": "eslint src/**/*.ts && tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
@@ -35,7 +35,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/hahow/jwplayer-plugins.git",
-    "directory": "packages/jwplayer-plugin-screenshot"
+    "directory": "packages/jwplayer-plugin-track-notes"
   },
   "publishConfig": {
     "access": "public"

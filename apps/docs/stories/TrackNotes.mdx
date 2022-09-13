@@ -1,0 +1,164 @@
+import { Story } from "@storybook/addon-docs";
+
+# jwplayer-plugin-track-notes
+
+[![npm version](https://badge.fury.io/js/@hahow%2Fjwplayer-plugin-track-notes.svg)](https://badge.fury.io/js/@hahow%2Fjwplayer-plugin-track-notes)
+
+🚧 **此功能尚未完成** 🚧
+
+這是一個 JW Player 外掛，允許使用者在播放器的時間軸上標註筆記。
+
+## Table of Contents
+
+- [Demo](#demo)
+- [External Plugin](#external-plugin)
+- [Internal Plugin](#internal-plugin-not-recommended)
+- [Configuration](#configuration)
+- [Instance](#instance)
+
+## Demo
+
+<Story id="track-notes--track-notes" />
+
+## External Plugin
+
+IIFE 格式，JW Player 預設使用 plugin 的方式：
+
+### Vanilla JS
+
+```html
+<html>
+  <head>
+    <script src="{your_cloud_hosted_player_library_url}"></script>
+  </head>
+  <body>
+    <div id="myElement"></div>
+
+    <script type="text/JavaScript">
+      jwplayer("myElement").setup({
+        "playlist": "{your_playlist_url}",
+        "plugins": {
+          "//unpkg.com/@hahow/jwplayer-plugin-watermark@latest/dist/iife/trackNotes.js": {
+            trackNotes: [
+              {
+                note: "Hello Track Notes!",
+                time: 10,
+              },
+              {
+                note: "The Second Note",
+                time: 30,
+              },
+            ],
+            onTrackNoteCreate: (time: number) => {
+              // Do something, e.g., call the backend API.
+            },
+            onTrackNoteUpdate: (trackNote: TrackNoteType) => {
+              // Do something, e.g., call the backend API.
+            },
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+```
+
+### React JS
+
+以 [@jwplayer/jwplayer-react](https://github.com/jwplayer/jwplayer-react) 為例，其它 framework 大同小異：
+
+```jsx
+import JWPlayer from '@jwplayer/jwplayer-react';
+
+const App = () => (
+  return (
+    <JWPlayer
+      library='{your_cloud_hosted_player_library_url}'
+      playlist='{your_playlist_url}'
+      config={{
+        plugins: {
+          "//unpkg.com/@hahow/jwplayer-plugin-track-notes@latest/dist/iife/trackNotes.js": {
+            trackNotes: [
+              {
+                note: "Hello Track Notes!",
+                time: 10,
+              },
+              {
+                note: "The Second Note",
+                time: 30,
+              },
+            ],
+            onTrackNoteCreate: (time: number) => {
+              // Do something, e.g., call the backend API.
+            },
+            onTrackNoteUpdate: (trackNote: TrackNoteType) => {
+              // Do something, e.g., call the backend API.
+            },
+          }
+        },
+      }}
+    />
+  );
+);
+```
+
+## Internal Plugin (not recommended)
+
+CJS & EMS 格式，非官方使用 plugin 的方式，不建議使用：
+
+1. `npm install @hahow/jwplayer-plugin-track-notes`
+1. 載入 plugin module `initPlugin`
+1. 建立一份空的 `trackNotes.js`，放在 application 可以讀取的位置（例如 `/`）
+1. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
+
+```jsx
+import JWPlayer from '@jwplayer/jwplayer-react';
+
+import { initPlugin } from "@hahow/jwplayer-plugin-track-notes";
+
+const App = () => (
+  return (
+    <JWPlayer
+      library='{your_cloud_hosted_player_library_url}'
+      playlist='{your_playlist_url}'
+      config={{
+        plugins: {
+          "/trackNotes.js": {
+            trackNotes: [
+              {
+                note: "Hello Track Notes!",
+                time: 10,
+              },
+              {
+                note: "The Second Note",
+                time: 30,
+              },
+            ],
+            onTrackNoteCreate: (time: number) => {
+              // Do something, e.g., call the backend API.
+            },
+            onTrackNoteUpdate: (trackNote: TrackNoteType) => {
+              // Do something, e.g., call the backend API.
+            },
+          }
+        },
+      }}
+      didMountCallback={({ player }) => {
+        player.registerPlugin("trackNotes", "8.0", initPlugin);
+      }}
+    />
+  );
+);
+```
+
+## Configuration
+
+| config              | type                                                   | default     | description             |
+| ------------------- | ------------------------------------------------------ | ----------- | ----------------------- |
+| `onTrackNoteCreate` | `(time: number) => void`                               | `undefined` | 新增筆記標註的 callback |
+| `onTrackNoteUpdate` | `(trackNote: { note: string; time: number; }) => void` | `undefined` | 更新筆記標註的 callback |
+| `trackNotes`        | `Array<{ note: string; time: number; }>`               | `undefined` | 筆記標註內容            |
+
+## Instance
+
+🚧
