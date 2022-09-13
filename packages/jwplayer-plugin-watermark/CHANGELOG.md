@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-watermark
 
+## 0.0.2
+
+### Patch Changes
+
+- c98fbcc: 更新文件連結
+
 ## 0.0.1
 
 ### Patch Changes

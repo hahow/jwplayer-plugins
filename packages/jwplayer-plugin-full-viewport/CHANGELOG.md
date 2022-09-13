@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.8
+
+### Patch Changes
+
+- c98fbcc: 更新文件連結
+
 ## 0.0.7
 
 ### Patch Changes
