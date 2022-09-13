@@ -1,6 +1,20 @@
-# Turborepo starter
+# JW Player Plugins
 
-This is an official npm starter turborepo.
+This is the monorepo of the [JW Player](https://www.jwplayer.com/) plugins that @hahow is using.
+
+powered by:
+
+- [Turborepo](https://turborepo.org/) — High-performance build system for Monorepos
+- [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
+- [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
+- [Changesets](https://github.com/changesets/changesets) - for managing versioning and changelogs
+- [GitHub Actions](https://github.com/changesets/action) - for fully automated package publishing
+
+As well as a few others tools preconfigured:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
 ## What's inside?
 
@@ -8,64 +22,73 @@ This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It inclu
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `apps/docs`: a [Storybook](https://storybook.js.org/) app
+- `packages/jwplayer-plugins-full-viewport`: a JW Player plugin that allows users to switch the video player to full-viewport size mode
+- `packages/jwplayer-plugins-screenshot`: a JW Player plugin that allows users to capture the current frame and download it as a PNG image
+- `packages/jwplayer-plugins-track-notes`: a JW Player plugin that allows users to mark notes on the player's timeline
+- `packages/jwplayer-plugins-watermark`: a JW Player plugin that allows to display watermarks on the video player
+- `packages/eslint-config-custom`: `eslint` configurations (includes `eslint-config-prettier`)
+- `packages/tsconfig`: `tsconfig.json`s used throughout the monorepo
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## Usage
 
-### Utilities
+Please refer to the [Documentation](https://hahow.github.io/jwplayer-plugins/)
 
-This turborepo has some additional tools already setup for you:
+## Contributing
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Installation
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-npm run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
+1. Clone the repo
 
 ```
-cd my-turborepo
-npm run dev
+git clone git@github.com:hahow/jwplayer-plugins.git
 ```
 
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+2. Install NPM packages
 
 ```
-cd my-turborepo
-npx turbo login
+npm install
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Commands
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+- `npm run build` - Build all packages including the Storybook site
+- `npm run dev` - Run all packages locally and preview with Storybook
+- `npm run lint` - Lint all packages
+- `npm run clean` - Clean up all node_modules and dist folders (runs each package's clean script)
+- `npm run changeset` - Generate a changeset
 
+Turborepo enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `npm install`:
+
+```bash
+# Install npm package only for apps/docs
+npm install some-package -w=docs
+
+# Install npm package only for packages/jwplayer-plugin-watermark
+npm install some-package -w=packages/jwplayer-plugin-watermark
+
+# Linting apps/docs
+npm run lint -w=docs
+
+# Build the specified package
+npm run build -w=packages/jwplayer-plugin-watermark
 ```
-npx turbo link
-```
 
-## Useful Links
+### Versioning & Publishing Packages
 
-Learn more about the power of Turborepo:
+This repository uses [Changesets](https://github.com/changesets/changesets) to manage versions, create changelogs, and publish to npm. It's preconfigured so you can start publishing packages immediately.
 
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+#### Generating the Changelog
+
+To generate your changelog, run `npm run changeset` locally:
+
+1. **Which packages would you like to include?** – This shows which packages and changed and which have remained the same. By default, no packages are included. Press `space` to select the packages you want to include in the `changeset`.
+1. **Which packages should have a major bump?** – Press `space` to select the packages you want to bump versions for.
+1. If doing the first major version, confirm you want to release.
+1. Write a summary for the changes.
+1. Confirm the changeset looks as expected.
+1. A new Markdown file will be created in the `changeset` folder with the summary and a list of the packages included.
+
+### Releasing
+
+When you merge your code to GitHub, the [GitHub Action](https://github.com/changesets/action) will run the `release` script defined in the root `package.json`.
