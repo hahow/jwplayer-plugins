@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.4
+
+### Patch Changes
+
+- c98fbcc: 更新文件連結
+
 ## 0.0.3
 
 ### Patch Changes
