@@ -6,15 +6,7 @@ declare module "@jwplayer/jwplayer-react" {
     didMountCallback?: (args: {
       id: string;
       player: {
-        registerPlugin(
-          id: string,
-          target: string,
-          jsPlugin: (
-            playerInstance: jwplayer.JWPlayer,
-            pluginConfig: any,
-            pluginDiv: HTMLElement
-          ) => void
-        ): void;
+        registerPlugin(id: string, target: string, jsPlugin: Function): void;
       };
     }) => void;
     file: string;
