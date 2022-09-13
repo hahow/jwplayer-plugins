@@ -21,6 +21,6 @@ declare global {
     (global.jwplayer && global.jwplayer().registerPlugin) ||
     function () {};
 
-  // This line registers above code as a 8.0 compatible plugin called "screenshot".
+  // This line registers above code as a 8.0 compatible plugin called "watermark".
   registerPlugin("watermark", "8.0", initPlugin);
 })(window);
