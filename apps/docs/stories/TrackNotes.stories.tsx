@@ -25,7 +25,7 @@ export const TrackNotes = createPluginStory({
   playerMinimumVersion: "8.14.0",
   pluginClassOrFunction: TrackNotesPlugin,
   pluginScriptUrl:
-    "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js",
+    "//unpkg.com/@hahow/jwplayer-plugin-track-notes@latest/dist/iife/trackNotes.js",
   pluginConfig: {
     trackNotes: [
       {
