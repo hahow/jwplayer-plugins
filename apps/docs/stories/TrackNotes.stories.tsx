@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import JWPlayer from "@jwplayer/jwplayer-react";
 import {
@@ -6,32 +6,8 @@ import {
   type TrackNoteType,
 } from "@hahow/jwplayer-plugin-track-notes";
 
+import createPluginStory from "../utils/createPluginStory";
 import Documentation from "./TrackNotes.mdx";
-
-const isDevelopment = process.env.NODE_ENV === "development";
-const defaultArgs = {
-  trackNotes: [
-    {
-      time: 10,
-      note: "Hello Track Notes!",
-    },
-    {
-      time: 30,
-      note: "The Second Note",
-    },
-  ],
-  onTrackNoteCreate: (time: number) => {
-    action("onTrackNoteCreate")(time);
-
-    const trackNote = { time };
-    const trackNotesPlugin = jwplayer().getPlugin("trackNotes");
-
-    trackNotesPlugin.trackNote.completeAddTrackNote(trackNote);
-  },
-  onTrackNoteUpdate: (trackNote: TrackNoteType) => {
-    action("onTrackNoteUpdate")(trackNote);
-  },
-};
 
 export default {
   title: "Track Notes",
@@ -44,40 +20,41 @@ export default {
   },
 } as ComponentMeta<typeof JWPlayer>;
 
-const Template: ComponentStory<typeof JWPlayer> = (args) => {
-  return (
-    <JWPlayer
-      didMountCallback={({ player }) => {
-        if (isDevelopment) {
-          player.registerPlugin("trackNotes", "8.14.0", TrackNotesPlugin);
-        }
-      }}
-      {...args}
-    />
-  );
-};
+export const TrackNotes = createPluginStory({
+  pluginName: "trackNotes",
+  playerMinimumVersion: "8.14.0",
+  pluginClassOrFunction: TrackNotesPlugin,
+  pluginScriptUrl:
+    "//unpkg.com/@hahow/jwplayer-plugin-full-viewport@latest/dist/iife/fullViewport.js",
+  pluginConfig: {
+    trackNotes: [
+      {
+        time: 10,
+        note: "Hello Track Notes!",
+      },
+      {
+        time: 30,
+        note: "The Second Note",
+      },
+    ],
+    onTrackNoteCreate: (time: number) => {
+      action("onTrackNoteCreate")(time);
 
-export const TrackNotes = Template.bind({});
+      const trackNote = { time };
+      const trackNotesPlugin = jwplayer().getPlugin("trackNotes");
 
-TrackNotes.args = {
-  config: {
-    height: 360,
-    plugins: {
-      ...(isDevelopment
-        ? {
-            "./trackNotes.js": {
-              ...defaultArgs,
-            },
-          }
-        : {
-            "//unpkg.com/@hahow/jwplayer-plugin-track-notes@latest/dist/iife/trackNotes.js":
-              {
-                ...defaultArgs,
-              },
-          }),
+      trackNotesPlugin.trackNote.completeAddTrackNote(trackNote);
     },
-    width: 640,
+    onTrackNoteUpdate: (trackNote: TrackNoteType) => {
+      action("onTrackNoteUpdate")(trackNote);
+    },
   },
-  file: "https://cdn.jwplayer.com/manifests/GXbUbwm0.m3u8",
-  library: "https://cdn.jwplayer.com/libraries/BdsZ7KBq.js",
-};
+  storyArgs: {
+    config: {
+      height: 360,
+      width: 640,
+    },
+    file: "https://cdn.jwplayer.com/manifests/GXbUbwm0.m3u8",
+    library: "https://cdn.jwplayer.com/libraries/BdsZ7KBq.js",
+  },
+});
