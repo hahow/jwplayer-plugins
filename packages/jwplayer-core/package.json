@@ -1,0 +1,18 @@
+{
+  "name": "jwplayer-core",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jwplayer": "^8.2.10",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "tsup": "^5.10.1",
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "lint": "eslint index.ts && tsc --noEmit"
+  }
+}
