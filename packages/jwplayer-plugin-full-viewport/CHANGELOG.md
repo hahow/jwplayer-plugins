@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.9
+
+### Patch Changes
+
+- dc746de: 重構程式碼
+
 ## 0.0.8
 
 ### Patch Changes

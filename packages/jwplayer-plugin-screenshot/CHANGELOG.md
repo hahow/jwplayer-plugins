@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.5
+
+### Patch Changes
+
+- dc746de: 重構程式碼
+
 ## 0.0.4
 
 ### Patch Changes

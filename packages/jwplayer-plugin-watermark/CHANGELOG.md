@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-watermark
 
+## 0.0.3
+
+### Patch Changes
+
+- dc746de: 重構程式碼
+
 ## 0.0.2
 
 ### Patch Changes
