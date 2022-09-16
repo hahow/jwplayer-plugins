@@ -25,11 +25,13 @@ export function getBlobUrl(video: HTMLVideoElement): Promise<string> {
  * @param name 下載的檔案名稱
  */
 export function download(url: string, name: string) {
-  const elink = document.createElement("a");
-  elink.style.display = "none";
-  elink.href = url;
-  elink.download = name;
-  document.body.appendChild(elink);
-  elink.click();
-  document.body.removeChild(elink);
+  const link = document.createElement("a");
+
+  link.style.display = "none";
+  link.href = url;
+  link.download = name;
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
