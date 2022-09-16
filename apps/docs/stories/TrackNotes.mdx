@@ -107,14 +107,14 @@ const App = () => (
 CJS & EMS 格式，非官方使用 plugin 的方式，不建議使用：
 
 1. `npm install @hahow/jwplayer-plugin-track-notes`
-1. 載入 plugin module `initPlugin`
+1. 載入 plugin module `TrackNotesPlugin`
 1. 建立一份空的 `trackNotes.js`，放在 application 可以讀取的位置（例如 `/`）
 1. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
 
 ```jsx
 import JWPlayer from '@jwplayer/jwplayer-react';
 
-import { initPlugin } from "@hahow/jwplayer-plugin-track-notes";
+import { TrackNotesPlugin } from "@hahow/jwplayer-plugin-track-notes";
 
 const App = () => (
   return (
@@ -144,7 +144,7 @@ const App = () => (
         },
       }}
       didMountCallback={({ player }) => {
-        player.registerPlugin("trackNotes", "8.0", initPlugin);
+        player.registerPlugin("trackNotes", "8.0", TrackNotesPlugin);
       }}
     />
   );
@@ -161,4 +161,15 @@ const App = () => (
 
 ## Instance
 
-🚧
+可以透過 JW Player 的 `getPlugin()` API 取得 plugin 的 instance：
+
+```js
+const trackNotesPluginInstance = jwplayer().getPlugin("trackNotes");
+
+// 透過 instance 就可以呼叫相關 methods
+trackNotesPluginInstance.completeAddTrackNote(...);
+```
+
+| method                    | type                     | description                     |
+| ------------------------- | ------------------------ | ------------------------------- |
+| 🧪 `completeAddTrackNote` | `(time: number) => void` | Demo 用，`1.0.0` 之後可能會移除 |

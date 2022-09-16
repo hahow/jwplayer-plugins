@@ -1,3 +1,5 @@
+import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
+
 interface WatermarkPluginConfig {
   /** 浮水印內容，HTML 格式，預設空字串 */
   html?: string;
@@ -5,27 +7,31 @@ interface WatermarkPluginConfig {
   style?: Partial<CSSStyleDeclaration>;
 }
 
-export function initPlugin(
-  playerInstance: jwplayer.JWPlayer,
-  pluginConfig: WatermarkPluginConfig,
-  pluginDiv: HTMLElement
-) {
-  playerInstance.on("ready", function (event) {
-    pluginDiv.style.top = "0";
-    pluginDiv.style.bottom = "0";
-    pluginDiv.style.left = "0";
-    pluginDiv.style.right = "0";
-    pluginDiv.style.display = "flex";
-    pluginDiv.style.justifyContent = "center";
-    pluginDiv.style.alignItems = "center";
-    pluginDiv.style.pointerEvents = "none";
+export class WatermarkPlugin extends JWPlayerPlugin<WatermarkPluginConfig> {
+  constructor(
+    playerInstance: JWPlayerType,
+    pluginConfig: WatermarkPluginConfig,
+    pluginDiv: HTMLElement
+  ) {
+    super(playerInstance, pluginConfig, pluginDiv);
 
-    const element = document.createElement("div");
+    playerInstance.on("ready", function (event) {
+      pluginDiv.style.top = "0";
+      pluginDiv.style.bottom = "0";
+      pluginDiv.style.left = "0";
+      pluginDiv.style.right = "0";
+      pluginDiv.style.display = "flex";
+      pluginDiv.style.justifyContent = "center";
+      pluginDiv.style.alignItems = "center";
+      pluginDiv.style.pointerEvents = "none";
 
-    Object.assign(element.style, pluginConfig.style ?? {});
+      const element = document.createElement("div");
 
-    element.innerHTML = pluginConfig.html ?? "";
+      Object.assign(element.style, pluginConfig.style ?? {});
 
-    pluginDiv.appendChild(element);
-  });
+      element.innerHTML = pluginConfig.html ?? "";
+
+      pluginDiv.appendChild(element);
+    });
+  }
 }

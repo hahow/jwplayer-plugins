@@ -1,6 +1,6 @@
 import { ComponentMeta } from "@storybook/react";
 import JWPlayer from "@jwplayer/jwplayer-react";
-import { initPlugin } from "@hahow/jwplayer-plugin-watermark";
+import { WatermarkPlugin } from "@hahow/jwplayer-plugin-watermark";
 
 import createPluginStory from "../utils/createPluginStory";
 import Documentation from "./Watermark.mdx";
@@ -18,7 +18,7 @@ export default {
 export const Watermark = createPluginStory({
   pluginName: "watermark",
   playerMinimumVersion: "8.0.0",
-  pluginClassOrFunction: initPlugin,
+  pluginClassOrFunction: WatermarkPlugin,
   pluginScriptUrl:
     "//unpkg.com/@hahow/jwplayer-plugin-watermark@latest/dist/iife/watermark.js",
   pluginConfig: {

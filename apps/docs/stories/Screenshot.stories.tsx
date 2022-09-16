@@ -1,6 +1,6 @@
 import { ComponentMeta } from "@storybook/react";
 import JWPlayer from "@jwplayer/jwplayer-react";
-import { initPlugin } from "@hahow/jwplayer-plugin-screenshot";
+import { ScreenshotPlugin } from "@hahow/jwplayer-plugin-screenshot";
 
 import createPluginStory from "../utils/createPluginStory";
 import Documentation from "./Screenshot.mdx";
@@ -18,7 +18,7 @@ export default {
 export const Screenshot = createPluginStory({
   pluginName: "screenshot",
   playerMinimumVersion: "8.0.0",
-  pluginClassOrFunction: initPlugin,
+  pluginClassOrFunction: ScreenshotPlugin,
   pluginScriptUrl:
     "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js",
   pluginConfig: {

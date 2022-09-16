@@ -40,10 +40,11 @@ export const TrackNotes = createPluginStory({
     onTrackNoteCreate: (time: number) => {
       action("onTrackNoteCreate")(time);
 
-      const trackNote = { time };
-      const trackNotesPlugin = jwplayer().getPlugin("trackNotes");
+      const trackNotesPlugin = jwplayer().getPlugin(
+        "trackNotes"
+      ) as TrackNotesPlugin;
 
-      trackNotesPlugin.trackNote.completeAddTrackNote(trackNote);
+      trackNotesPlugin.completeAddTrackNote(time);
     },
     onTrackNoteUpdate: (trackNote: TrackNoteType) => {
       action("onTrackNoteUpdate")(trackNote);
