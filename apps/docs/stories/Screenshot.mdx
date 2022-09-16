@@ -36,7 +36,8 @@ IIFE 格式，JW Player 預設使用 plugin 的方式：
         "playlist": "{your_playlist_url}",
         "plugins": {
           "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {
-            enabled: true
+            enabled: true,
+            name: "screenshot"
           }
         }
       });
@@ -60,7 +61,8 @@ const App = () => (
       config={{
         plugins: {
           "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js": {
-            enabled: true
+            enabled: true,
+            name: "screenshot"
           }
         },
       }}
@@ -91,7 +93,8 @@ const App = () => (
       config={{
         plugins: {
           "/screenshot.js": {
-            enabled: true
+            enabled: true,
+            name: "screenshot"
           }
         },
       }}
@@ -105,6 +108,7 @@ const App = () => (
 
 ## Configuration
 
-| config    | type      | default | description      |
-| --------- | --------- | ------- | ---------------- |
-| `enabled` | `boolean` | `true`  | 是否開啟截圖功能 |
+| config    | type      | default      | description      |
+| --------- | --------- | ------------ | ---------------- |
+| `enabled` | `boolean` | `true`       | 是否開啟截圖功能 |
+| `name`    | `string`  | `screenshot` | 截圖檔名         |

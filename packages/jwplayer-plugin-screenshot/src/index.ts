@@ -4,13 +4,17 @@ import { download, getBlobUrl } from "./utils";
 interface ScreenshotPluginConfig {
   /** 是否開啟截圖功能，預設 true */
   enabled?: boolean;
+  /** 截圖檔名，預設 "screenshot" */
+  name?: string;
 }
 
 export function initPlugin(
   playerInstance: jwplayer.JWPlayer,
-  pluginConfig: ScreenshotPluginConfig = { enabled: true }
+  pluginConfig: ScreenshotPluginConfig
 ) {
-  if (pluginConfig.enabled === false) return;
+  const { enabled = true, name = "screenshot" } = pluginConfig;
+
+  if (enabled === false) return;
 
   playerInstance.on("ready", () => {
     const video = document.querySelector<HTMLVideoElement>(".jw-video");
@@ -21,7 +25,7 @@ export function initPlugin(
     const handleClick = async () => {
       if (video) {
         const dataUri = await getBlobUrl(video);
-        download(dataUri, "screenshot");
+        download(dataUri, name);
       }
     };
 
