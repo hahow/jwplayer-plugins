@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-watermark
 
+## 0.0.4
+
+### Patch Changes
+
+- 05cd7c3: 重構程式碼
+
 ## 0.0.3
 
 ### Patch Changes

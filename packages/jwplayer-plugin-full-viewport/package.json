@@ -1,6 +1,6 @@
 {
   "name": "@hahow/jwplayer-plugin-full-viewport",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "This is a JW Player plugin that allows users to switch the video player to full-viewport size mode",
   "keywords": [
     "jwplayer",
