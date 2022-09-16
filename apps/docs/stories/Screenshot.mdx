@@ -76,14 +76,14 @@ const App = () => (
 CJS & EMS 格式，非官方使用 plugin 的方式，不建議使用：
 
 1. `npm install @hahow/jwplayer-plugin-screenshot`
-1. 載入 plugin module `initPlugin`
+1. 載入 plugin module `ScreenshotPlugin`
 1. 建立一份空的 `screenshot.js`，放在 application 可以讀取的位置（例如 `/`）
 1. 使用 JWP 的 `registerPlugin()` API 註冊 plugin
 
 ```jsx
 import JWPlayer from '@jwplayer/jwplayer-react';
 
-import { initPlugin } from "@hahow/jwplayer-plugin-screenshot";
+import { ScreenshotPlugin } from "@hahow/jwplayer-plugin-screenshot";
 
 const App = () => (
   return (
@@ -99,7 +99,7 @@ const App = () => (
         },
       }}
       didMountCallback={({ player }) => {
-        player.registerPlugin("screenshot", "8.0", initPlugin);
+        player.registerPlugin("screenshot", "8.0", ScreenshotPlugin);
       }}
     />
   );

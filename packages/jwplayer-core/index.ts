@@ -6,6 +6,11 @@ declare global {
   }
 }
 
+// TODO: remove it when https://github.com/DefinitelyTyped/DefinitelyTyped/pull/62225 merged
+export interface JWPlayerType extends jwplayer.JWPlayer {
+  addCues: (cues: { begin: number; cueType: string; text: string }[]) => void;
+}
+
 /**
  * @param pluginName Name of the plugin matching the name referenced in the `plugins` object of the player.
  * The `pluginName` must match the name referenced in the `plugins` object of the player.
@@ -32,3 +37,25 @@ export const executePlugin = (
   // This line registers <pluginClassOrFunction> code as a <playerMinimumVersion> compatible plugin called <pluginName>.
   registerPlugin(pluginName, playerMinimumVersion, pluginClassOrFunction);
 };
+
+export class JWPlayerPlugin<PluginConfigType = any> {
+  playerInstance;
+  pluginConfig;
+  pluginDiv;
+
+  /**
+   * @param playerInstance Instance of the player API with which the plugin is being registered
+   * @param pluginConfig Config block passed in `player().setup()`
+   * @param pluginDiv DIV created in the DOM for this plugin.
+   * This DIV can be used or the DOM can be manipulated within the plugin code.
+   */
+  constructor(
+    playerInstance: JWPlayerType,
+    pluginConfig: PluginConfigType,
+    pluginDiv: HTMLElement
+  ) {
+    this.playerInstance = playerInstance;
+    this.pluginConfig = pluginConfig;
+    this.pluginDiv = pluginDiv;
+  }
+}

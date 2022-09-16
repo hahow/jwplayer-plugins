@@ -1,5 +1,5 @@
 import { executePlugin } from "jwplayer-core";
 
-import { initPlugin } from ".";
+import { WatermarkPlugin } from ".";
 
-executePlugin("watermark", "8.0", initPlugin);
+executePlugin("watermark", "8.0", WatermarkPlugin);

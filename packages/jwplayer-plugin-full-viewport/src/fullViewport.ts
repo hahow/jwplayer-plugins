@@ -1,5 +1,5 @@
 import { executePlugin } from "jwplayer-core";
 
-import { initPlugin } from ".";
+import { FullViewportPlugin } from ".";
 
-executePlugin("fullViewport", "8.0", initPlugin);
+executePlugin("fullViewport", "8.0", FullViewportPlugin);

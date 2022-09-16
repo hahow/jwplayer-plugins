@@ -1,7 +1,8 @@
 import { TrackNote } from "./class";
 import { CONTROL_ICON } from "./constants";
+import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
+
 import { generateStyle } from "./style";
-import { JWPlayer } from "./type";
 
 export type TrackNoteType = {
   note: string;
@@ -14,15 +15,14 @@ export interface trackNotesPluginConfig {
   onTrackNoteUpdate: (trackNote: TrackNoteType) => void;
 }
 
-export class TrackNotesPlugin {
-  trackNote;
-
+export class TrackNotesPlugin extends JWPlayerPlugin<trackNotesPluginConfig> {
   constructor(
-    playerInstance: JWPlayer,
+    playerInstance: JWPlayerType,
     pluginConfig: trackNotesPluginConfig,
     pluginDiv: HTMLElement
   ) {
     this.trackNote = new TrackNote(playerInstance, pluginConfig, pluginDiv);
+    super(playerInstance, pluginConfig, pluginDiv);
 
     generateStyle();
 

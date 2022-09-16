@@ -1,5 +1,5 @@
 import { executePlugin } from "jwplayer-core";
 
-import { initPlugin } from ".";
+import { ScreenshotPlugin } from ".";
 
-executePlugin("screenshot", "8.0", initPlugin);
+executePlugin("screenshot", "8.0", ScreenshotPlugin);
