@@ -19,11 +19,6 @@ export function getBlobUrl(video: HTMLVideoElement): Promise<string> {
   });
 }
 
-/**
- * 下載檔案
- * @param url 下載的檔案網址
- * @param name 下載的檔案名稱
- */
 export function download(url: string, name: string) {
   const link = document.createElement("a");
 
