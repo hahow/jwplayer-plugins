@@ -1,5 +1,5 @@
 import { ICON } from "./constants";
-import { createElement, download, query } from "./utils";
+import { download, getBlobUrl } from "./utils";
 
 interface ScreenshotPluginConfig {
   /** 是否開啟截圖功能，預設 true */
@@ -13,18 +13,16 @@ export function initPlugin(
   if (pluginConfig.enabled === false) return;
 
   playerInstance.on("ready", () => {
-    const handleClick = () => {
-      const video = query(".jw-video");
+    const video = document.querySelector<HTMLVideoElement>(".jw-video");
+    // Safari 如果沒加這個 attribute，canvas.toBlob() 會出現 SecurityError: The operation is insecure.
+    // https://stackoverflow.com/questions/25753754/canvas-todataurl-security-error-the-operation-is-insecure
+    video?.setAttribute("crossOrigin", "anonymous");
 
-      const canvas = createElement("canvas");
-
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      canvas.getContext("2d").drawImage(video, 0, 0);
-
-      const dataUri = canvas.toDataURL("image/png");
-
-      download(dataUri, "screenshot.png");
+    const handleClick = async () => {
+      if (video) {
+        const dataUri = await getBlobUrl(video);
+        download(dataUri, "screenshot");
+      }
     };
 
     playerInstance.addButton(ICON, "截圖", handleClick, "jw-plugin-screenshot");

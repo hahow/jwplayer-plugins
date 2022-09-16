@@ -1,9 +1,22 @@
-export function query(selector: any) {
-  return document.querySelector(selector);
-}
+export function getBlobUrl(video: HTMLVideoElement): Promise<string> {
+  return new Promise((resolve, reject) => {
+    try {
+      const canvas = document.createElement("canvas");
 
-export function createElement(tag: any) {
-  return document.createElement(tag);
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      canvas?.getContext("2d")?.drawImage(video, 0, 0);
+
+      canvas.toBlob((blob) => {
+        if (blob) {
+          resolve(URL.createObjectURL(blob));
+        }
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
 /**
