@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.6
+
+### Patch Changes
+
+- 95c9999: 修復 Safari 無法截圖問題
+
 ## 0.0.5
 
 ### Patch Changes
