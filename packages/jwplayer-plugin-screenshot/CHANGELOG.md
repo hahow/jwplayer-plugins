@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.7
+
+### Patch Changes
+
+- 1a82e85: 新增 `config.name` 自訂截圖檔名
+
 ## 0.0.6
 
 ### Patch Changes
