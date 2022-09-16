@@ -1,6 +1,6 @@
 {
   "name": "@hahow/jwplayer-plugin-screenshot",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This is a JW Player plugin that allows users to capture the current frame and download it as a PNG image",
   "keywords": [
     "jwplayer",
