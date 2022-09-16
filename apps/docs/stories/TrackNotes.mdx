@@ -161,4 +161,15 @@ const App = () => (
 
 ## Instance
 
-🚧
+可以透過 JW Player 的 `getPlugin()` API 取得 plugin 的 instance：
+
+```js
+const trackNotesPluginInstance = jwplayer().getPlugin("trackNotes");
+
+// 透過 instance 就可以呼叫相關 methods
+trackNotesPluginInstance.completeAddTrackNote(...);
+```
+
+| method                    | type                     | description                     |
+| ------------------------- | ------------------------ | ------------------------------- |
+| 🧪 `completeAddTrackNote` | `(time: number) => void` | Demo 用，`1.0.0` 之後可能會移除 |
