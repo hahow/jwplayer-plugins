@@ -23,6 +23,7 @@ export const Screenshot = createPluginStory({
     "//unpkg.com/@hahow/jwplayer-plugin-screenshot@latest/dist/iife/screenshot.js",
   pluginConfig: {
     enabled: true,
+    name: "screenshot",
   },
   storyArgs: {
     config: {
