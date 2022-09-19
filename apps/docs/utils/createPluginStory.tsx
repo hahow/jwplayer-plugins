@@ -36,7 +36,8 @@ const createPluginStory = ({
       <JWPlayer
         didMountCallback={({ player }) => {
           if (isDevelopment) {
-            // TODO: 這邊需要解釋一下
+            // Production 環境會直接 load external plugin script（JWP 預設方式），裡面包涵 registerPlugin()
+            // 這裡是為了方便 local 開發 plugin，所以不使用 load external plugin script 的方式
             player.registerPlugin(
               pluginName,
               playerMinimumVersion,
@@ -57,15 +58,16 @@ const createPluginStory = ({
       ...storyArgs.config,
       plugins: {
         ...storyArgs.config?.plugins,
-        // TODO: 這邊需要解釋一下：
-        // 1. 為什麼要放一個空的 fullViewport.js 檔案
-        // 2. 為什麼要用相對路徑
-        // https://storybook.js.org/docs/react/configure/images-and-assets#absolute-versus-relative-paths
         ...(isDevelopment
           ? {
+              // Local 開發會去 load 一個假的 public/*.js 欺騙 JWP，實際是透過 registerPlugin() load plugin script
+              //
+              // 這裡用相對路徑是為了解決 GitHub Pages subpath 的問題
+              // https://storybook.js.org/docs/react/configure/images-and-assets#absolute-versus-relative-paths
               [`./${pluginName}.js`]: { ...pluginConfig },
             }
           : {
+              // Production 直接使用 external plugin script
               [pluginScriptUrl]: { ...pluginConfig },
             }),
       },
