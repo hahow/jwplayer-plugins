@@ -3,18 +3,21 @@ import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
 import { CONTROL_ICON, TRASH_ICON } from "./constants";
 import { generateStyle } from "./style";
 
-export type TrackNoteType = {
+type TrackNoteType = {
   note: string;
   time: number;
 };
 
-export interface trackNotesPluginConfig {
+interface trackNotesPluginConfig {
   trackNotes: TrackNoteType[];
   onTrackNoteCreate?: (time: number) => void;
   onTrackNoteUpdate?: (trackNote: TrackNoteType) => void;
 }
 
 export class TrackNotesPlugin extends JWPlayerPlugin<trackNotesPluginConfig> {
+  static readonly pluginName = "trackNotes";
+  static readonly playerMinimumVersion = "8.14.0";
+
   constructor(
     playerInstance: JWPlayerType,
     pluginConfig: trackNotesPluginConfig,

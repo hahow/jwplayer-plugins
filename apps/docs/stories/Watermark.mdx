@@ -108,7 +108,11 @@ const App = () => (
         },
       }}
       didMountCallback={({ player }) => {
-        player.registerPlugin("watermark", "8.0", WatermarkPlugin);
+        player.registerPlugin(
+          WatermarkPlugin.pluginName,
+          WatermarkPlugin.playerMinimumVersion,
+          WatermarkPlugin
+        );
       }}
     />
   );

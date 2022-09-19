@@ -89,7 +89,11 @@ const App = () => (
         },
       }}
       didMountCallback={({ player }) => {
-        player.registerPlugin("fullViewport", "8.0", FullViewportPlugin);
+        player.registerPlugin(
+          FullViewportPlugin.pluginName,
+          FullViewportPlugin.playerMinimumVersion,
+          FullViewportPlugin
+        );
       }}
     />
   );

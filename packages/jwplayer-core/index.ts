@@ -12,15 +12,10 @@ export interface JWPlayerType extends jwplayer.JWPlayer {
 }
 
 /**
- * @param pluginName Name of the plugin matching the name referenced in the `plugins` object of the player.
- * The `pluginName` must match the name referenced in the `plugins` object of the player.
- * @param playerMinimumVersion Minimum player version required the plugin
- * @param pluginClassOrFunction Plugin function of class to instantiate with new player instances
+ * @param PluginClass Plugin class to instantiate with new player instances
  */
-export const executePlugin = (
-  pluginName: string,
-  playerMinimumVersion: string,
-  pluginClassOrFunction: Function
+export const executePlugin = <T = any>(
+  PluginClass: typeof JWPlayerPlugin<T>
 ) => {
   // JW Player custom plugin
   //
@@ -35,10 +30,25 @@ export const executePlugin = (
     function () {};
 
   // This line registers <pluginClassOrFunction> code as a <playerMinimumVersion> compatible plugin called <pluginName>.
-  registerPlugin(pluginName, playerMinimumVersion, pluginClassOrFunction);
+  registerPlugin(
+    PluginClass.pluginName,
+    PluginClass.playerMinimumVersion,
+    PluginClass
+  );
 };
 
-export class JWPlayerPlugin<PluginConfigType = any> {
+export abstract class JWPlayerPlugin<PluginConfigType = any> {
+  // FIXME: TypeScript 目前還無法檢查 abstract static properties
+  // https://stackoverflow.com/a/43723730/754377
+  // https://stackoverflow.com/questions/48813814/enforce-static-member-in-class-using-enum
+  /**
+   * Name of the plugin matching the name referenced in the `plugins` object of the player.
+   * The `pluginName` must match the name referenced in the `plugins` object of the player.
+   */
+  static readonly pluginName: string;
+  /** Minimum player version required the plugin */
+  static readonly playerMinimumVersion: string;
+
   playerInstance;
   pluginConfig;
   pluginDiv;

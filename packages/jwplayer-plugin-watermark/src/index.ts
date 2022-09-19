@@ -8,6 +8,9 @@ interface WatermarkPluginConfig {
 }
 
 export class WatermarkPlugin extends JWPlayerPlugin<WatermarkPluginConfig> {
+  static readonly pluginName = "watermark";
+  static readonly playerMinimumVersion = "8.0.0";
+
   constructor(
     playerInstance: JWPlayerType,
     pluginConfig: WatermarkPluginConfig,

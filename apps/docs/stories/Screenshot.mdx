@@ -101,7 +101,11 @@ const App = () => (
         },
       }}
       didMountCallback={({ player }) => {
-        player.registerPlugin("screenshot", "8.0", ScreenshotPlugin);
+        player.registerPlugin(
+          ScreenshotPlugin.pluginName,
+          ScreenshotPlugin.playerMinimumVersion,
+          ScreenshotPlugin
+        );
       }}
     />
   );
