@@ -144,7 +144,11 @@ const App = () => (
         },
       }}
       didMountCallback={({ player }) => {
-        player.registerPlugin("trackNotes", "8.0", TrackNotesPlugin);
+        player.registerPlugin(
+          TrackNotesPlugin.pluginName,
+          TrackNotesPlugin.playerMinimumVersion,
+          TrackNotesPlugin
+        );
       }}
     />
   );

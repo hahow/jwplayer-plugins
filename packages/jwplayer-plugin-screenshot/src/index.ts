@@ -11,6 +11,9 @@ interface ScreenshotPluginConfig {
 }
 
 export class ScreenshotPlugin extends JWPlayerPlugin<ScreenshotPluginConfig> {
+  static readonly pluginName = "screenshot";
+  static readonly playerMinimumVersion = "8.0.0";
+
   constructor(
     playerInstance: JWPlayerType,
     pluginConfig: ScreenshotPluginConfig,

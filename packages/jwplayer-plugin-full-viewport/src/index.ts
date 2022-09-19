@@ -4,6 +4,9 @@ import { ICON } from "./constants";
 import { addClass, hasClass, removeClass } from "./utils";
 
 export class FullViewportPlugin extends JWPlayerPlugin {
+  static readonly pluginName = "fullViewport";
+  static readonly playerMinimumVersion = "8.0.0";
+
   constructor(
     playerInstance: JWPlayerType,
     pluginConfig: null,
