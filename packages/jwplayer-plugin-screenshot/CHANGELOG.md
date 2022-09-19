@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-screenshot
 
+## 0.0.9
+
+### Patch Changes
+
+- 89c3302: 重構程式碼
+
 ## 0.0.8
 
 ### Patch Changes

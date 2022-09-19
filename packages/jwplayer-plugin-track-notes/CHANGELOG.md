@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-track-notes
 
+## 0.0.5
+
+### Patch Changes
+
+- 89c3302: 重構程式碼
+
 ## 0.0.4
 
 ### Patch Changes
