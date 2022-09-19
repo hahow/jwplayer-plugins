@@ -1,5 +1,11 @@
 # @hahow/jwplayer-plugin-full-viewport
 
+## 0.0.11
+
+### Patch Changes
+
+- 89c3302: 重構程式碼
+
 ## 0.0.10
 
 ### Patch Changes

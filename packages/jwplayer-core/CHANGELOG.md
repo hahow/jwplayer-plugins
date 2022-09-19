@@ -1,5 +1,11 @@
 # jwplayer-core
 
+## 0.0.3
+
+### Patch Changes
+
+- 89c3302: 重構程式碼
+
 ## 0.0.2
 
 ### Patch Changes
