@@ -6,11 +6,6 @@ declare global {
   }
 }
 
-// TODO: remove it when https://github.com/DefinitelyTyped/DefinitelyTyped/pull/62225 merged
-export interface JWPlayerType extends jwplayer.JWPlayer {
-  addCues: (cues: { begin: number; cueType: string; text: string }[]) => void;
-}
-
 /**
  * @param PluginClass Plugin class to instantiate with new player instances
  */
@@ -60,7 +55,7 @@ export abstract class JWPlayerPlugin<PluginConfigType = any> {
    * This DIV can be used or the DOM can be manipulated within the plugin code.
    */
   constructor(
-    playerInstance: JWPlayerType,
+    playerInstance: jwplayer.JWPlayer,
     pluginConfig: PluginConfigType,
     pluginDiv: HTMLElement
   ) {

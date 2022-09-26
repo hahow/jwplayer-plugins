@@ -18,7 +18,7 @@
     "dist/**"
   ],
   "devDependencies": {
-    "@types/jwplayer": "^8.2.10",
+    "@types/jwplayer": "^8.2.11",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "jwplayer-core": "*",
