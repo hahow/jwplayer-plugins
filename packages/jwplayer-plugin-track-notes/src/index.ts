@@ -3,7 +3,7 @@ import { JWPlayerPlugin } from "jwplayer-core";
 import { CONTROL_ICON, TRASH_ICON } from "./constants";
 import { generateStyle } from "./style";
 
-type TrackNoteType = {
+export type TrackNoteType = {
   note: string;
   time: number;
 };
