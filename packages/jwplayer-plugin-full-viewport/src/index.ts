@@ -1,4 +1,4 @@
-import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
+import { JWPlayerPlugin } from "jwplayer-core";
 
 import { ICON } from "./constants";
 import { addClass, hasClass, removeClass } from "./utils";
@@ -8,7 +8,7 @@ export class FullViewportPlugin extends JWPlayerPlugin {
   static readonly playerMinimumVersion = "8.0.0";
 
   constructor(
-    playerInstance: JWPlayerType,
+    playerInstance: jwplayer.JWPlayer,
     pluginConfig: null,
     pluginDiv: HTMLElement
   ) {

@@ -1,4 +1,4 @@
-import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
+import { JWPlayerPlugin } from "jwplayer-core";
 
 interface WatermarkPluginConfig {
   /** 浮水印內容，HTML 格式，預設空字串 */
@@ -12,7 +12,7 @@ export class WatermarkPlugin extends JWPlayerPlugin<WatermarkPluginConfig> {
   static readonly playerMinimumVersion = "8.0.0";
 
   constructor(
-    playerInstance: JWPlayerType,
+    playerInstance: jwplayer.JWPlayer,
     pluginConfig: WatermarkPluginConfig,
     pluginDiv: HTMLElement
   ) {

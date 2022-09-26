@@ -1,4 +1,4 @@
-import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
+import { JWPlayerPlugin } from "jwplayer-core";
 
 import { CONTROL_ICON, TRASH_ICON } from "./constants";
 import { generateStyle } from "./style";
@@ -19,7 +19,7 @@ export class TrackNotesPlugin extends JWPlayerPlugin<trackNotesPluginConfig> {
   static readonly playerMinimumVersion = "8.14.0";
 
   constructor(
-    playerInstance: JWPlayerType,
+    playerInstance: jwplayer.JWPlayer,
     pluginConfig: trackNotesPluginConfig,
     pluginDiv: HTMLElement
   ) {

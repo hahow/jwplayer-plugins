@@ -1,4 +1,4 @@
-import { type JWPlayerType, JWPlayerPlugin } from "jwplayer-core";
+import { JWPlayerPlugin } from "jwplayer-core";
 
 import { ICON } from "./constants";
 import { download, getBlobUrl } from "./utils";
@@ -15,7 +15,7 @@ export class ScreenshotPlugin extends JWPlayerPlugin<ScreenshotPluginConfig> {
   static readonly playerMinimumVersion = "8.0.0";
 
   constructor(
-    playerInstance: JWPlayerType,
+    playerInstance: jwplayer.JWPlayer,
     pluginConfig: ScreenshotPluginConfig,
     pluginDiv: HTMLElement
   ) {
