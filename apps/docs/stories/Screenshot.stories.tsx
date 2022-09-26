@@ -31,6 +31,6 @@ export const Screenshot = createPluginStory({
       width: 640,
     },
     file: "https://cdn.jwplayer.com/manifests/GXbUbwm0.m3u8",
-    library: "https://cdn.jwplayer.com/libraries/BdsZ7KBq.js",
+    library: "https://cdn.jwplayer.com/libraries/5vuW2BEP.js",
   },
 });
