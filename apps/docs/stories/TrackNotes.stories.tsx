@@ -54,6 +54,10 @@ export const TrackNotes = createPluginStory({
     config: {
       height: 360,
       width: 640,
+      // 新版本的播放器不支援 custom cueType 了，需要加這個設定才行
+      timeSlider: {
+        legacy: true,
+      },
     },
     file: "https://cdn.jwplayer.com/manifests/GXbUbwm0.m3u8",
     library: "https://cdn.jwplayer.com/libraries/5vuW2BEP.js",
