@@ -36,6 +36,9 @@ IIFE 格式，JW Player 預設使用 plugin 的方式：
 
     <script type="text/JavaScript">
       jwplayer("myElement").setup({
+        "timeSlider": {
+          "legacy": true,
+        },
         "playlist": "{your_playlist_url}",
         "plugins": {
           "//unpkg.com/@hahow/jwplayer-plugin-watermark@latest/dist/iife/trackNotes.js": {
@@ -76,6 +79,10 @@ const App = () => (
       library='{your_cloud_hosted_player_library_url}'
       playlist='{your_playlist_url}'
       config={{
+        // 新版本的播放器不支援 custom cueType 了，需要加這個設定才行
+        timeSlider: {
+          legacy: true,
+        },
         plugins: {
           "//unpkg.com/@hahow/jwplayer-plugin-track-notes@latest/dist/iife/trackNotes.js": {
             trackNotes: [
@@ -122,6 +129,9 @@ const App = () => (
       library='{your_cloud_hosted_player_library_url}'
       playlist='{your_playlist_url}'
       config={{
+        timeSlider: {
+          legacy: true,
+        },
         plugins: {
           "/trackNotes.js": {
             trackNotes: [
